@@ -28,16 +28,18 @@ if [ "$XCODE_VER_INS" != "$XCODE_VER" ]; then
   exit 0
 fi
 
+ARCHIVE_IOS_PATH=ios
+ARCHIVE_SIM_PATH=simulator
+FINAL_PRODUCT=zfp.xcframework
+
 # Start fresh
 xcodebuild -project zfp.xcodeproj -scheme zfp_iOS clean
-rm -rf bin/* lib/*
+rm -rf $ARCHIVE_IOS_PATH $ARCHIVE_SIM_PATH $FINAL_PRODUCT
 
 # iOS device variant
-ARCHIVE_IOS_PATH=ios
 xcodebuild archive -project zfp.xcodeproj -scheme zfp_iOS -configuration $ARCHIVE_CONFIGURATION -destination generic/platform=iOS -archivePath $ARCHIVE_IOS_PATH/zfp.xcarchive BUILD_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
 
 # iOS simulator variant
-ARCHIVE_SIM_PATH=simulator
 xcodebuild archive -project zfp.xcodeproj -scheme zfp_simulator -configuration $ARCHIVE_CONFIGURATION -destination "generic/platform=iOS Simulator" -archivePath $ARCHIVE_SIM_PATH/zfp.xcarchive BUILD_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
 
 # Codesign the individual frameworks (optional)
@@ -49,7 +51,7 @@ else
 fi
 
 # Package all variants into a single .xcframework
-xcodebuild -create-xcframework -framework $ARCHIVE_IOS_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_SIM_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -output zfp.xcframework
+xcodebuild -create-xcframework -framework $ARCHIVE_IOS_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_SIM_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -output $FINAL_PRODUCT
 
 # Codesign the final xcframework (optional)
 if [ ! -z "$MY_TEAM_ID" ]; then

@@ -1,5 +1,4 @@
 // swift-tools-version:5.4
-
 import PackageDescription
 
 let package = Package(
@@ -15,6 +14,6 @@ let package = Package(
          path: "Frameworks/zfp.xcframework"
       ),
    ],
-   cxxLanguageStandard: .cxx17
+   cLanguageStandard: .c99
 )
 

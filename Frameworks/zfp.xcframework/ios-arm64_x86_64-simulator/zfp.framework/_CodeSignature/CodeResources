@@ -4,9 +4,33 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/bitstream.h</key>
+		<data>
+		ifF/edJRDkxj43Tjuo1KcKhbvz4=
+		</data>
+		<key>Headers/macros.h</key>
+		<data>
+		SBxEekFjNSoY+XzF/TccD4N6O9w=
+		</data>
+		<key>Headers/system.h</key>
+		<data>
+		7XS+jyhIdC1uZfT3GfdgOt5nhPw=
+		</data>
+		<key>Headers/types.h</key>
+		<data>
+		vH4YyqazIoesK8NuYZN4je6Jw7Y=
+		</data>
+		<key>Headers/version.h</key>
+		<data>
+		NL0ut8zEJLVWP40u+/069J+ZYF0=
+		</data>
+		<key>Headers/zfp.h</key>
+		<data>
+		2i9s4GjS4syMzbEw+qs53jXYAdA=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		25GgwC5OUXE8B3mNdx//6ue2jec=
+		AcUtjsj2cZedq31z5dOaJY8yhkE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -15,6 +39,72 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/bitstream.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ifF/edJRDkxj43Tjuo1KcKhbvz4=
+			</data>
+			<key>hash2</key>
+			<data>
+			sOaD62zFv9zp9vfsfwgGTFxgzgntzsg1KR95il3uNmM=
+			</data>
+		</dict>
+		<key>Headers/macros.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SBxEekFjNSoY+XzF/TccD4N6O9w=
+			</data>
+			<key>hash2</key>
+			<data>
+			I2jOF2lr6sL3Oy3UtXNKoNTaoQb0m99ZJz3g4VC/sYo=
+			</data>
+		</dict>
+		<key>Headers/system.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7XS+jyhIdC1uZfT3GfdgOt5nhPw=
+			</data>
+			<key>hash2</key>
+			<data>
+			x/ToAxMABTH8yNBx/f/1eBCXW57wNIOvwjFn+Tb+GlM=
+			</data>
+		</dict>
+		<key>Headers/types.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vH4YyqazIoesK8NuYZN4je6Jw7Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			3zfuhnb83SUhdFDzdZ13OS8VwKrptzcAJk/+UKXo1oo=
+			</data>
+		</dict>
+		<key>Headers/version.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NL0ut8zEJLVWP40u+/069J+ZYF0=
+			</data>
+			<key>hash2</key>
+			<data>
+			/LfZGj4+yrKxUiNU0fq6LVZ/dIxu2REo18FR0J8gR5E=
+			</data>
+		</dict>
+		<key>Headers/zfp.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2i9s4GjS4syMzbEw+qs53jXYAdA=
+			</data>
+			<key>hash2</key>
+			<data>
+			NYpCGRYug4H1s8brOydggzicPe8k8voYa9ecXSwfK1Q=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
