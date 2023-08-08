@@ -90,5 +90,6 @@ fastlane/test_output
 iOSInjectionProject/
 
 # Generated paths from build scripts
+.DS_Store
 simulator
 ios
