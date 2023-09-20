@@ -13,7 +13,7 @@ MY_TEAM_ID=""
 ARCHIVE_CONFIGURATION=MinSizeRel
 
 # Specify the minimum version of Xcode to compile with. Must be installed on this system!
-XCODE_VER=13.2
+XCODE_VER=15.0
 
 # ===================================================
 # Shouldn't need to manually edit anything below this
@@ -30,6 +30,7 @@ fi
 
 ARCHIVE_IOS_PATH=ios
 ARCHIVE_SIM_PATH=simulator
+ARCHIVE_VISIONOS_PATH=visionos
 FINAL_PRODUCT=zfp.xcframework
 
 # Start fresh
@@ -42,6 +43,9 @@ xcodebuild archive -project zfp.xcodeproj -scheme zfp_iOS -configuration $ARCHIV
 # iOS simulator variant
 xcodebuild archive -project zfp.xcodeproj -scheme zfp_simulator -configuration $ARCHIVE_CONFIGURATION -destination "generic/platform=iOS Simulator" -archivePath $ARCHIVE_SIM_PATH/zfp.xcarchive BUILD_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
 
+# visionOS variant
+xcodebuild archive -project zfp.xcodeproj -scheme zfp_visionOS -configuration $ARCHIVE_CONFIGURATION -destination "generic/platform=xros" -archivePath $ARCHIVE_VISIONOS_PATH/zfp.xcarchive BUILD_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
+
 # Codesign the individual frameworks (optional)
 if [ ! -z "$MY_TEAM_ID" ]; then
    codesign --verbose -s $MY_TEAM_ID $ARCHIVE_IOS_PATH/zfp.xcarchive
@@ -51,7 +55,7 @@ else
 fi
 
 # Package all variants into a single .xcframework
-xcodebuild -create-xcframework -framework $ARCHIVE_IOS_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_SIM_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -output $FINAL_PRODUCT
+xcodebuild -create-xcframework -framework $ARCHIVE_IOS_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_SIM_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_VISIONOS_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -output $FINAL_PRODUCT
 
 # Codesign the final xcframework (optional)
 if [ ! -z "$MY_TEAM_ID" ]; then
