@@ -29,22 +29,26 @@ if [ "$XCODE_VER_INS" != "$XCODE_VER" ]; then
 fi
 
 ARCHIVE_IOS_PATH=ios
-ARCHIVE_SIM_PATH=simulator
+ARCHIVE_IOS_SIM_PATH=ios_simulator
 ARCHIVE_VISIONOS_PATH=visionos
+ARCHIVE_VISIONOS_SIM_PATH=visionos_simulator
 FINAL_PRODUCT=zfp.xcframework
 
 # Start fresh
 xcodebuild -project zfp.xcodeproj -scheme zfp_iOS clean
-rm -rf $ARCHIVE_IOS_PATH $ARCHIVE_SIM_PATH $FINAL_PRODUCT
+rm -rf $ARCHIVE_IOS_PATH $ARCHIVE_IOS_SIM_PATH $ARCHIVE_VISIONOS_PATH $ARCHIVE_VISIONOS_SIM_PATH $FINAL_PRODUCT
 
 # iOS device variant
 xcodebuild archive -project zfp.xcodeproj -scheme zfp_iOS -configuration $ARCHIVE_CONFIGURATION -destination generic/platform=iOS -archivePath $ARCHIVE_IOS_PATH/zfp.xcarchive BUILD_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
 
 # iOS simulator variant
-xcodebuild archive -project zfp.xcodeproj -scheme zfp_simulator -configuration $ARCHIVE_CONFIGURATION -destination "generic/platform=iOS Simulator" -archivePath $ARCHIVE_SIM_PATH/zfp.xcarchive BUILD_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
+xcodebuild archive -project zfp.xcodeproj -scheme zfp_iOS_simulator -configuration $ARCHIVE_CONFIGURATION -destination "generic/platform=iOS Simulator" -archivePath $ARCHIVE_IOS_SIM_PATH/zfp.xcarchive BUILD_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
 
 # visionOS variant
 xcodebuild archive -project zfp.xcodeproj -scheme zfp_visionOS -configuration $ARCHIVE_CONFIGURATION -destination "generic/platform=xros" -archivePath $ARCHIVE_VISIONOS_PATH/zfp.xcarchive BUILD_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
+
+# visionOS simulator variant
+xcodebuild archive -project zfp.xcodeproj -scheme zfp_visionOS_simulator -configuration $ARCHIVE_CONFIGURATION -destination "generic/platform=xrsimulator" -archivePath $ARCHIVE_VISIONOS_SIM_PATH/zfp.xcarchive BUILD_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
 
 # Codesign the individual frameworks (optional)
 if [ ! -z "$MY_TEAM_ID" ]; then
@@ -55,7 +59,7 @@ else
 fi
 
 # Package all variants into a single .xcframework
-xcodebuild -create-xcframework -framework $ARCHIVE_IOS_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_SIM_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_VISIONOS_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -output $FINAL_PRODUCT
+xcodebuild -create-xcframework -framework $ARCHIVE_IOS_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_IOS_SIM_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_VISIONOS_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -framework $ARCHIVE_VISIONOS_SIM_PATH/zfp.xcarchive/Products/Library/Frameworks/zfp.framework -output $FINAL_PRODUCT
 
 # Codesign the final xcframework (optional)
 if [ ! -z "$MY_TEAM_ID" ]; then

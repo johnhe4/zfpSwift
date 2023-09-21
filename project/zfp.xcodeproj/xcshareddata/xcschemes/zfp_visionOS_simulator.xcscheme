@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52B59D502ABBB73500C3F9AB"
-               BuildableName = "zfp.framework"
-               BlueprintName = "zfp_visionOS"
+               BlueprintIdentifier = "52B59D622ABBBD2100C3F9AB"
+               BuildableName = "zfp_visionOS_simulator.framework"
+               BlueprintName = "zfp_visionOS_simulator"
                ReferencedContainer = "container:zfp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -49,9 +49,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52B59D502ABBB73500C3F9AB"
-            BuildableName = "zfp.framework"
-            BlueprintName = "zfp_visionOS"
+            BlueprintIdentifier = "52B59D622ABBBD2100C3F9AB"
+            BuildableName = "zfp_visionOS_simulator.framework"
+            BlueprintName = "zfp_visionOS_simulator"
             ReferencedContainer = "container:zfp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

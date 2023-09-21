@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52B2212A2A82AC7E001F51D4"
                BuildableName = "zfp.framework"
-               BlueprintName = "zfp_simulator"
+               BlueprintName = "zfp_iOS_simulator"
                ReferencedContainer = "container:zfp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -52,7 +52,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52B2212A2A82AC7E001F51D4"
             BuildableName = "zfp.framework"
-            BlueprintName = "zfp_simulator"
+            BlueprintName = "zfp_iOS_simulator"
             ReferencedContainer = "container:zfp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
