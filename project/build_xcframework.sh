@@ -13,7 +13,7 @@ MY_TEAM_ID=""
 ARCHIVE_CONFIGURATION=MinSizeRel
 
 # Specify the minimum version of Xcode to compile with. Must be installed on this system!
-XCODE_VER=15.0
+XCODE_VER=15.2
 
 # ===================================================
 # Shouldn't need to manually edit anything below this
